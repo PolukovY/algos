@@ -12,8 +12,7 @@ public class GeometricProgressionTest {
         int firstItem = 18;
         int thirdItem = 2;
         double delta = 0.01;
-
-        double expectedSecondItem = 5.94;
+        double expectedSecondItem = 6;
 
         GeometricProgression geometricProgression = new GeometricProgression();
 
