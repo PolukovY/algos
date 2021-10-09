@@ -1,9 +1,20 @@
 package com.levik.hw1;
 
+import java.util.Objects;
+
 public class Task2 {
     private static final char SLASH = '/';
+    private static final String EMPTY = "";
 
     public String twoSlash(String url) {
+        if (Objects.isNull(url)) {
+            throw new IllegalArgumentException("Url should not be null");
+        }
+
+        if (EMPTY.equals(url) || EMPTY.equals(url.trim())) {
+            return EMPTY;
+        }
+
         char[] chars = url.toCharArray();
         var result = new StringBuilder();
 

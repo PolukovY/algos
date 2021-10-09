@@ -19,4 +19,42 @@ public class Task2Test {
         //then
         Assert.assertEquals(expectedUrl, actualUrl);
     }
+
+
+    @Test
+    public void shouldHandleEmptyUrl() {
+        //given
+        String url = "";
+        String expectedUrl = "";
+
+        //when
+        String actualUrl = testInstance.twoSlash(url);
+
+        //then
+        Assert.assertEquals(expectedUrl, actualUrl);
+    }
+
+    @Test
+    public void shouldHandleSpacesUrl() {
+        //given
+        String url = "   ";
+        String expectedUrl = "";
+
+        //when
+        String actualUrl = testInstance.twoSlash(url);
+
+        //then
+        Assert.assertEquals(expectedUrl, actualUrl);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void shouldHandleNullUrl() {
+        //given
+        String url = null;
+
+        //when
+        testInstance.twoSlash(url);
+    }
+
+
 }

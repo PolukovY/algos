@@ -6,11 +6,11 @@ import org.junit.Test;
 
 public class Task1Test {
 
-    private final Task1 testInstance = new Task1();
+    private Task1 testInstance;
 
     @Before
     public void beforeEach() {
-        testInstance.resetDbCallCount();
+        testInstance = new Task1();
     }
 
     @Test
