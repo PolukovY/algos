@@ -35,7 +35,7 @@ public class Task1 {
         }
     }
 
-    //Не задовольняє умову time O(356 * n) > O(n * n)
+    //Не задовольняє умову n < 356, якщо більше тоді задоволняє time O(356 * n) > O(n * n)
     public void example4(int n) {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < 356; j++) {

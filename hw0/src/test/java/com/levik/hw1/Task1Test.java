@@ -61,7 +61,7 @@ public class Task1Test {
     @Test
     public void shouldCalcExample4() {
         //given
-        int n = 10;
+        int n = 1000;
         int expectedDbCallsLessThenMultipleN = n * n;
 
         //when
@@ -70,7 +70,7 @@ public class Task1Test {
         long dbCallCount = testInstance.getDbCallCount();
 
         //then
-        Assert.assertFalse(expectedDbCallsLessThenMultipleN >= dbCallCount);
+        Assert.assertTrue(expectedDbCallsLessThenMultipleN >= dbCallCount);
     }
 
     @Test
