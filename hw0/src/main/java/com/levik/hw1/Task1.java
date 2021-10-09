@@ -23,6 +23,7 @@ public class Task1 {
     public void example2(int n) {
         for (int i = n; i > 1; i /= 2) {
             dbCall();
+            System.out.println("i:= " + i + " dbCall:= " + getDbCallCount()) ;
         }
     }
 
@@ -30,6 +31,7 @@ public class Task1 {
     public void example3(int n) {
         for (int i = 0; i * i < n; i++) {
             dbCall();
+            System.out.println("i:= " + i + " dbCall:= " + getDbCallCount()) ;
         }
     }
 
