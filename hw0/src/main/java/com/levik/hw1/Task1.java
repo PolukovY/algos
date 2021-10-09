@@ -45,7 +45,7 @@ public class Task1 {
 
 
 
-    //Не задовольняє умову time O(n^n^n) > O (n * n) ???
+    //Не задовольняє умову time O(n^2*(n^2 - 1)) > O (n * n) ???
     public void example5(int n) {
         for (int i = 0; i < n * n - 10; i++) {
             for (int j = 0; j <= i; j++) {
@@ -55,7 +55,7 @@ public class Task1 {
         }
     }
 
-    // Не задовольняє умову time O(n^n^n) > O (n * n) ???
+    // Не задовольняє умову time O(n^3 * (n - 1) * (n - 1)) > O (n * n) ???
     public void example6(int n) {
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= i; j++) {
