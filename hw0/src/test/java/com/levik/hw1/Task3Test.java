@@ -56,7 +56,7 @@ public class Task3Test {
         char expectedChar = 'd';
 
         //when
-        char actualChar = testInstance.calcRepeatCharFast(text);
+        char actualChar = testInstance.calcRepeatCharSlow(text);
 
         //then
         assertEquals(expectedChar, actualChar);
@@ -68,7 +68,7 @@ public class Task3Test {
         String text = "";
 
         //when
-        testInstance.calcRepeatCharFast(text);
+        testInstance.calcRepeatCharSlow(text);
     }
 
     @Test
@@ -78,7 +78,7 @@ public class Task3Test {
         char expectedChar = 'l';
 
         //when
-        char actualChar = testInstance.calcRepeatCharFast(text);
+        char actualChar = testInstance.calcRepeatCharSlow(text);
 
         //then
         assertEquals(expectedChar, actualChar);

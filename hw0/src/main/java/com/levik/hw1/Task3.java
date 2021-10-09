@@ -9,7 +9,7 @@ public class Task3 {
     private static final String EMPTY = "";
 
     //O(n^2) - time, O(1) - space
-    public char calcRepeatCharSimple(String text) {
+    public char calcRepeatCharSlow(String text) {
         if (Objects.isNull(text) || EMPTY.equals(text) || EMPTY.equals(text.trim())) {
             throw new IllegalArgumentException("Text should not be null");
         }
