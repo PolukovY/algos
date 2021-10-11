@@ -75,6 +75,17 @@ public class Task1 {
     }
 
     // Задоволняє умову O(n * n/2*j) < O (n * n) ???
+    // i = 1  j = 1, 1 < 1 dbCall = 0
+    // i = 2  j = 2   dbCall = 1
+    // i = 3  j = 3   dbCall = 2
+    // i = 4  j = 4   dbCall = 2
+    // i = 5  j = 5   dbCall = 3
+    // i = 6  j = 6   dbCall = 3
+    // i = 7  j = 7   dbCall = 3
+    // i = 8  j = 8   dbCall = 3
+    // i = 9  j = 9   dbCall = 4
+    // i = 19  j = 19   dbCall = 5
+    // i = 29  j = 29   dbCall = 5
     public void example7(int n) {
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j < i; j *= 2) {

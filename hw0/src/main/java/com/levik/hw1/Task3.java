@@ -9,67 +9,69 @@ public class Task3 {
     private static final String EMPTY = "";
 
     //O(n^2) - time, O(1) - space
-    public char calcRepeatCharSlow(String text) {
-        if (Objects.isNull(text) || EMPTY.equals(text) || EMPTY.equals(text.trim())) {
+    public int calcRepeatCharSlow(int[] nums) {
+        if (Objects.isNull(nums) || nums.length == 0) {
             throw new IllegalArgumentException("Text should not be null");
         }
 
-        char[] chars = text.toCharArray();
-        int targetCount = chars.length / 2;
+        if (nums.length == 1) {
+            return nums[0];
+        }
 
-        for (int i = 0; i < chars.length; i++) {
+        int targetCount = nums.length / 2;
+
+        for (int i = 0; i < nums.length; i++) {
             int count = 0;
-            for (int j = i + 1; j < chars.length; j++) {
-                if (chars[i] == chars[j]) {
+            for (int j = i + 1; j < nums.length; j++) {
+                if (nums[i] == nums[j]) {
                     count++;
 
-                    if (count == targetCount) {
-                        return chars[i];
+                    if (count >= targetCount) {
+                        return nums[i];
                     }
                 }
             }
         }
 
-        throw new RepeatedChatNotFoundException(text);
+        throw new RepeatedChatNotFoundException(nums);
     }
 
     //O(n) - time, O(n) - space
-    public char calcRepeatCharFast(String text) {
-        if (Objects.isNull(text) || EMPTY.equals(text) || EMPTY.equals(text.trim())) {
+    public int calcRepeatCharFast(int[] nums) {
+        if (Objects.isNull(nums) || nums.length == 0) {
             throw new IllegalArgumentException("Text should not be null");
         }
 
-        Map<Character, Integer> container = new HashMap<>();
-        char[] chars = text.toCharArray();
-        int targetCount = chars.length / 2;
+        Map<Integer, Integer> container = new HashMap<>();
+        int targetCount = nums.length / 2;
 
-        for (char aChar : chars) {
-            int currentSumCount = sumCountForChar(container, aChar);
+        for (int num : nums) {
+            int currentSumCount = sumCountForChar(container, num);
 
             if (currentSumCount > targetCount) {
-                return aChar;
+                return num;
             }
         }
 
-        throw new RepeatedChatNotFoundException(text);
+        throw new RepeatedChatNotFoundException(nums);
     }
 
 
-    private int sumCountForChar(Map<Character, Integer> container, char aChar) {
+    private int sumCountForChar(Map<Integer, Integer> container, int aChar) {
         int currentCount = container.getOrDefault(aChar, 0);
         container.put(aChar, ++currentCount);
         return currentCount;
     }
 
     public static class RepeatedChatNotFoundException extends RuntimeException {
-        private final String text;
+        private final int[] nums;
 
-        public RepeatedChatNotFoundException(String text) {
-            this.text = text;
+        public RepeatedChatNotFoundException(int[] nums) {
+            this.nums = nums;
         }
 
-        public String getText() {
-            return text;
+        public int[] getNums() {
+            return nums;
         }
     }
 }
