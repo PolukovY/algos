@@ -6,8 +6,6 @@ import java.util.Objects;
 
 public class Task3 {
 
-    private static final String EMPTY = "";
-
     //O(n^2) - time, O(1) - space
     public int calcRepeatCharSlow(int[] nums) {
         if (Objects.isNull(nums) || nums.length == 0) {
@@ -55,7 +53,6 @@ public class Task3 {
 
         throw new RepeatedChatNotFoundException(nums);
     }
-
 
     private int sumCountForChar(Map<Integer, Integer> container, int aChar) {
         int currentCount = container.getOrDefault(aChar, 0);
