@@ -13,13 +13,16 @@ public class Task1 {
     }
 
     //Задовольняє умову time O(n) < O (n * n)
+    // n + 10 константу не враховуємо тому виходить n
     public void example1(int n) {
         for (int i = 0; i < n + 10; i++) {
             dbCall();
         }
     }
 
-    //Задовольняє умову time O(log(n)) < O(n * n)
+    //Задовольняє умову
+    // 1/2^n < n * n
+    // 1/2 1/4 1/8 ... 1/2^n
     public void example2(int n) {
         for (int i = n; i > 1; i /= 2) {
             dbCall();
@@ -28,6 +31,8 @@ public class Task1 {
     }
 
     //Задовольняє умову time O(log(n)) < O(n * n)
+    // 0 (0), 1 (1), 2 (4), 3 (9) -> i (i*i)
+    // 0^2 1^2 2^2 3^2 ...n^2 - умова виходу n^2 < n
     public void example3(int n) {
         for (int i = 0; i * i < n; i++) {
             dbCall();
@@ -35,7 +40,9 @@ public class Task1 {
         }
     }
 
-    //Не задовольняє умову n < 356, якщо більше тоді задоволняє time O(356 * n) > O(n * n)
+    //n - розмірність першого циклу, m - розмірність другого циклу
+    //Задоволняє умову m = 356 m < n.
+    //Не задовольняє умову якщо n < m
     public void example4(int n) {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < 356; j++) {
@@ -44,8 +51,6 @@ public class Task1 {
             System.out.println("i:= " + i + " dbCall:= " + getDbCallCount()) ;
         }
     }
-
-
 
     //Не задовольняє умову time O(n^2*(n^2 - 1)) > O (n * n) ???
     public void example5(int n) {
