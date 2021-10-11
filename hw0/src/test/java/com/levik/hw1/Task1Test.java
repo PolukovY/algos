@@ -14,28 +14,13 @@ public class Task1Test {
     }
 
     @Test
-    public void shouldCalcExample1() {
-        //given
-        int n = 10;
-        int expectedDbCallsLessThenMultipleN = n * n;
-
-        //when
-        testInstance.example1(n);
-
-        long dbCallCount = testInstance.getDbCallCount();
-
-        //then
-        Assert.assertTrue(expectedDbCallsLessThenMultipleN >= dbCallCount);
-    }
-
-    @Test
     public void shouldCalcExample2() {
         //given
-        int n = 1_000;
+        int n = 100;
         int expectedDbCallsLessThenMultipleN = n * n;
 
         //when
-        testInstance.example2(n);
+        testInstance.exampleA(n);
 
         long dbCallCount = testInstance.getDbCallCount();
 
@@ -50,7 +35,7 @@ public class Task1Test {
         int expectedDbCallsLessThenMultipleN = n * n;
 
         //when
-        testInstance.example3(n);
+        testInstance.exampleB(n);
 
         long dbCallCount = testInstance.getDbCallCount();
 
@@ -65,7 +50,7 @@ public class Task1Test {
         int expectedDbCallsLessThenMultipleN = n * n;
 
         //when
-        testInstance.example4(n);
+        testInstance.exampleC(n);
 
         long dbCallCount = testInstance.getDbCallCount();
 
@@ -80,7 +65,7 @@ public class Task1Test {
         int expectedDbCallsLessThenMultipleN = n * n;
 
         //when
-        testInstance.example5(n);
+        testInstance.exampleD(n);
 
         long dbCallCount = testInstance.getDbCallCount();
 
@@ -95,7 +80,7 @@ public class Task1Test {
         int expectedDbCallsLessThenMultipleN = n * n;
 
         //when
-        testInstance.example6(n);
+        testInstance.exampleE(n);
 
         long dbCallCount = testInstance.getDbCallCount();
 
@@ -110,7 +95,7 @@ public class Task1Test {
         int expectedDbCallsLessThenMultipleN = n * n;
 
         //when
-        testInstance.example7(n);
+        testInstance.exampleF(n);
 
         long dbCallCount = testInstance.getDbCallCount();
 
@@ -125,7 +110,7 @@ public class Task1Test {
         int expectedDbCallsLessThenMultipleN = n * n;
 
         //when
-        testInstance.example8(n);
+        testInstance.exampleG(n);
 
         long dbCallCount = testInstance.getDbCallCount();
 
@@ -140,7 +125,7 @@ public class Task1Test {
         int expectedDbCallsLessThenMultipleN = n * n;
 
         //when
-        testInstance.example9(n);
+        testInstance.exampleH(n);
 
         long dbCallCount = testInstance.getDbCallCount();
 
