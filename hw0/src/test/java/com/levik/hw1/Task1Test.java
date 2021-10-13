@@ -61,7 +61,7 @@ public class Task1Test {
     @Test
     public void shouldCalcExample5() {
         //given
-        int n = 10;
+        int n = 5;
         int expectedDbCallsLessThenMultipleN = n * n;
 
         //when
@@ -91,7 +91,7 @@ public class Task1Test {
     @Test
     public void shouldCalcExample7() {
         //given
-        int n = 1_000;
+        int n = 10;
         int expectedDbCallsLessThenMultipleN = n * n;
 
         //when
