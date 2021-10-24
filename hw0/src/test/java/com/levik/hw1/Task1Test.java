@@ -121,7 +121,7 @@ public class Task1Test {
     @Test
     public void shouldCalcExample9() {
         //given
-        int n = 10;
+        int n = 4;
         int expectedDbCallsLessThenMultipleN = n * n;
 
         //when

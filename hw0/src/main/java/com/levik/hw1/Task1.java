@@ -44,7 +44,7 @@ public class Task1 {
     }
 
     //якщо n <= 10/2 - 1 = 4 - O(1) < O (n * n) - не буде виконуватися жоден із циклів задовольняє умову
-    //якщо n >= 10/2 - O(n^3) > O (n * n) -  не задовольняє умову
+    //якщо n >= 10/2 - O(n^4) > O (n * n) -  не задовольняє умову
     //i = 0   1
     //i = 1   2
     //i = 2   3
@@ -87,6 +87,14 @@ public class Task1 {
     // i = 9 dbCall = 3
     // i = 10 dbCall = 4
     // Із ітерації видно що перший цикел O(n), а другий рухється повільно аналогічно log(n)
+    //послідовність викликів хмаринки
+    //0 + 1 + 2 + 2 + 3 + 3 + 3 + 3 + 4
+    //так як у нас крок 2 можемо знайти праву границю < n
+    //2^x <= n
+    //log 2^x <= log n
+    //x <= log n - це ми порахували нижній цикел
+    //верхній у нас лінійна складність n
+    //Так як він внутрішній ми пермножаємо n * log n
     public void exampleF(int n) {
         //O(n)
         for (int i = 1; i <= n; i++) {
@@ -96,7 +104,7 @@ public class Task1 {
                     dbCall();
                     count++;
             }
-            System.out.println("i:= " + i + " count:= " + count  + " dbCall:= " + getDbCallCount());
+            System.out.println("i:= " + i + " count:= " + count);
         }
     }
 
@@ -107,7 +115,11 @@ public class Task1 {
     //i = 4 dbCall = 3
     //i = 5..9 dbCall = 2
     //i = 10 dbCall = 1
-    //n...log(n)
+    //
+    //Внутрішній цикел залежить від зовнішнього. При збільшенні ітерації внутрішній лічільник виконає менше викликів.
+    //Проаналізувавши ітерації викликів нижче можна знайти закономірність log n для внутрішнього лічільника
+    //n = 10
+    // 10, 5, 4, 3, 2, 1 .. log n
     public void exampleG(int n) {
         //O(n)
         for (int i = 1; i <= n; i++) {
@@ -117,7 +129,7 @@ public class Task1 {
                 dbCall();
                 count++;
             }
-            System.out.println("i:= " + i + " count:= " + count  + " dbCallSum:= " + getDbCallCount());
+            System.out.println("i:= " + i + " count:= " + count);
         }
     }
 
@@ -129,9 +141,19 @@ public class Task1 {
     //n - 0 dbCall = 1
     //n - 0 dbCall = 1
     //n..sqrt(n)
+    //10, 5, 2, 1, 1, 1
+    //n n/2 n/4 n/8 ... 1 - геометрична прогресія
+    //n = 1 * 2^(x-1)
+    //log n = log 2^(x-1)
+    //log n = (x-1) * log 2
+    //x = log n + 1
+    //x = log n - це ми розібрали просто нашу рекурсію.
+    //Плюс у нас є цикел в середині який залежить від n тому нам потрібно ще перемножити до попереднього
+    //Результат n * log n
     public void exampleH(int n) {
         System.out.println("n:= " + n);
         if (n == 0) {
+            System.out.println("return n:=" + n);
             return;
         }
 
@@ -141,7 +163,7 @@ public class Task1 {
             dbCall();
             count++;
         }
-        System.out.println("count:= " + count  + " dbCall:= " + getDbCallCount()) ;
+        System.out.println("count:= " + count) ;
         //O(log(n/2))
         exampleH(n/2);
         exampleH(n/2);
