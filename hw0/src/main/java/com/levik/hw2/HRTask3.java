@@ -29,10 +29,7 @@ public class HRTask3 {
         int[] res = new int[k.length];
 
         for (int i = 0; i < k.length; i++) {
-            int count = k[i];
-            for (int j = 0; j < count; j++) {
-                res[i] = calc(count);
-            }
+            res[i] = calc(k[i]);
         }
 
         return res;
