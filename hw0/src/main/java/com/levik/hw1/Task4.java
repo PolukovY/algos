@@ -23,17 +23,31 @@ for (int k = 0; k < n; k++) {
                 cnt ++;
         print(cnt);
     }
-------
-    d.
-            https://en.cppreference.com/w/cpp/container/vector
-            for (int i = 1; i < n; i++) {
-        vector<int> digits;
-        for (int j = i, d = 2; j > 0; j /= d, d++)
-            digits.push_back(j % d);
-        for (int j = digits.size() - 1; j >= 0; j--)
-            print("%d ", digits[j]);
-        print("\n");
-    }
-
     */
+
+    public static void solutionC() {
+        int n = 10;
+        int[] p = new int[n];
+        int[] a = new int[n];
+        int[] b = new int[n];
+        int cnt = 0;
+
+        int[] tmp = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            tmp[i] = a[p[i]];
+        }
+
+        for (int k = 0; k < n; k++) {
+            int value = b[k];
+            for (int i = k; i < n - k; i++) {
+                int tmpValue = tmp[i];
+                if (tmpValue >= value) {
+                    cnt++;
+                }
+            }
+        }
+
+        System.out.println(cnt);
+    }
 }
