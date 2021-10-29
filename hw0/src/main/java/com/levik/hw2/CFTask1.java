@@ -9,7 +9,7 @@ public class CFTask1 {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        int n = input.nextInt();
+        int n = read(input);
 
         int solution = solution(n, input);
 
@@ -35,12 +35,16 @@ public class CFTask1 {
 
     private static boolean isCommitBrokenBuild(int m, Scanner input) {
         print(String.valueOf(m));
-        int i = input.nextInt();
+        int i = read(input);
         return i == FAILED_TESTS;
     }
 
     private static void print(String text) {
         System.out.println(text);
         System.out.flush();
+    }
+
+    private static int read(Scanner input) {
+        return input.nextInt();
     }
 }
