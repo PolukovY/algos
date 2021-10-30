@@ -24,8 +24,14 @@ public class Task1Test {
         long startTime = System.nanoTime();
         testInstance = new Task1(n, image);
 
+        /*
+        [i, j] = [0, 0]
+        [i, j] = [1, 0]
+        [i, j] = [0, 1]
+        [i, j] = [1, 1]
+         */
         //when
-        boolean dark = testInstance.isDark();
+        boolean dark = testInstance.isDarkOp1();
 
         long endTime = System.nanoTime();
 
@@ -50,16 +56,16 @@ public class Task1Test {
      Time 133.254277
      *
      * isDarkOp1
-     Time 93.664637
-     Time 73.464787
-     Time 117.229835
-     Time 103.162516
-     Time 74.710576
-     Time 90.587888
-     Time 94.889398
-     Time 111.7756
-     Time 93.254102
-     Time 92.452103
+     Time 48.68938
+     Time 36.100221
+     Time 25.57554
+     Time 9.474258
+     Time 5.922604
+     Time 5.795944
+     Time 2.596808
+     Time 27.318195
+     Time 7.802304
+     Time 11.69691
      *
      */
     @Test

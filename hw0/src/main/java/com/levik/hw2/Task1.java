@@ -16,6 +16,7 @@ public class Task1 {
         long count = 0;
         for (int j = 0; j < n; j++) {
             for (int i = 0; i < n; i++) {
+                System.out.println("[i, j] = [" + i + ", " + j + "]");
                 if (image[i][j] >= DARK_MARK) {
                     count += 1;
                 }
@@ -27,11 +28,19 @@ public class Task1 {
 
     public boolean isDarkOp1() {
         long count = 0;
-        for (int k = 0; k < n*n; k++) {
-            int i = k / n;
-            int j = k % n;
-            if (image[i][j] >= DARK_MARK) {
-                count += 1;
+        int m = n  / 2;
+
+        for (int i = 0; i <= m; i++) {
+            for (int j = 0; j < m; j++) {
+                if (image[i][j] >= DARK_MARK) {
+                    count += 1;
+                }
+            }
+
+            for (int j = m; j < n; j++) {
+                if (image[i][j] >= DARK_MARK) {
+                    count += 1;
+                }
             }
         }
 
