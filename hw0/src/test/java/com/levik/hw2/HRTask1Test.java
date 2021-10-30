@@ -26,11 +26,41 @@ public class HRTask1Test {
     }
 
     @Test
+    public void testCase6() {
+        //given
+        int money = 0;
+        int[] costs = {0, 0, 1, 2, 3};
+        int[] expectedItems = {1, 2};
+
+        //when
+        int[] actual = HRTask1.solution(costs, money);
+
+        //then
+        Assert.assertEquals(expectedItems[0], actual[0]);
+        Assert.assertEquals(expectedItems[1], actual[1]);
+    }
+
+    @Test
+    public void testCase7() {
+        //given
+        int money = 0;
+        int[] costs = {0, 0, 1, 2, 3};
+        int[] expectedItems = {1, 2};
+
+        //when
+        int[] actual = HRTask1.solution2(costs, money);
+
+        //then
+        Assert.assertEquals(expectedItems[0], actual[0]);
+        Assert.assertEquals(expectedItems[1], actual[1]);
+    }
+
+    @Test
     public void testCase5() {
         //given
         int money = 8;
         int[] costs = {1, 3, 5, 7};
-        int[] expectedItems = {2, 3};
+        int[] expectedItems = {1, 4};
 
         //when
         int[] actual = HRTask1.solution(costs, money);
