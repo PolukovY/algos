@@ -46,4 +46,50 @@ public class Task1 {
 
         return count < n * n / 2;
     }
+
+    public void sinx(int n, int terms, float[] x, float[] result) {
+        for (int i = 0;  i < n; i++) {
+            float value = x[i];
+            float numer = x[i] * x[i] * x[i];
+            int denom = 6;
+            int sign = -1;
+
+            for (int j = 1; j <= terms; j++) {
+                value += sign *numer / denom;
+                numer *= x[i] * x[i];
+                denom *= (2*j + 2) * (2*j + 2);
+                sign *= -1;
+            }
+
+            result[i] = value;
+        }
+    }
+
+    public void sinxOp1(int n, int terms, float[] x, float[] result) {
+        int m = terms  / 2;
+
+        for (int i = 0;  i < n; i++) {
+            float value = x[i];
+            float multipleTwoNums = value * value;
+            float numer = multipleTwoNums * value;
+            int denom = 6;
+            int sign = -1;
+
+            for (int j = 1; j < m; j++) {
+                value += sign * numer / denom;
+                numer *= multipleTwoNums;
+                denom *= (2*j + 2) * (2*j + 2);
+                sign *= -1;
+            }
+
+            for (int j = m; j <= terms; j++) {
+                value += sign * numer / denom;
+                numer *= multipleTwoNums;
+                denom *= (2*j + 2) * (2*j + 2);
+                sign *= -1;
+            }
+
+            result[i] = value;
+        }
+    }
 }
