@@ -1,6 +1,5 @@
 package com.levik.hw2;
 
-import java.io.Console;
 import java.util.*;
 
 public class HRTask3 {
