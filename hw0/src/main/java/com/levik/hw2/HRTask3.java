@@ -1,5 +1,6 @@
 package com.levik.hw2;
 
+import java.io.Console;
 import java.util.*;
 
 public class HRTask3 {
@@ -35,6 +36,9 @@ public class HRTask3 {
         return res;
     }
 
+    /**
+     * N = 1 + (1 + 2 + ... x) = 1 + x(x + 1) / 2
+     **/
     private static long calc(int i) {
         double n = (Math.sqrt(8.0 * i + 1) -1) / 2;
         return n == (int)n ? 1 : 0;
