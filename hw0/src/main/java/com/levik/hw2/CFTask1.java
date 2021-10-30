@@ -1,6 +1,6 @@
 package com.levik.hw2;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class CFTask1 {
 
@@ -17,13 +17,15 @@ public class CFTask1 {
     }
 
     public static int solution(int n, Scanner input) {
-        int left = -1;
+        Map<Integer, Boolean> cache = new HashMap<>();
+
+        int left = 0;
         int right = n;
 
         while (right - left > 1) {
             int m = left + (right - left) / 2;
 
-            if (isCommitBrokenBuild(m, input)) {
+            if (isCommitBrokenBuildWithCacheResults(m, input, cache)) {
                 right = m;
             } else {
                 left = m;
@@ -31,6 +33,17 @@ public class CFTask1 {
         }
 
         return right;
+    }
+
+    private static boolean isCommitBrokenBuildWithCacheResults(int m, Scanner input, Map<Integer, Boolean> cache) {
+        Boolean value = cache.get(m);
+        if (Objects.nonNull(value)) {
+            return value;
+        }
+
+        boolean commitBrokenBuild = isCommitBrokenBuild(m, input);
+        cache.put(m, commitBrokenBuild);
+        return commitBrokenBuild;
     }
 
     private static boolean isCommitBrokenBuild(int m, Scanner input) {
