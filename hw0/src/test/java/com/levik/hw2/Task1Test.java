@@ -98,4 +98,73 @@ public class Task1Test {
             }
         }
     }
+
+    @Test
+    public void testCase3() {
+        //given
+        int[] array = {1, 3, 0, 2};
+        int x = 2;
+        int expected = 23;
+
+        //when
+        long startTime = System.nanoTime();
+        long actual = Task1.calcB(array, x);
+        long endTime = System.nanoTime();
+
+        System.out.println("Time " +(endTime - startTime) / 1e6);
+
+        //then
+        Assert.assertEquals(expected, actual);
+    }
+
+    /**
+     * calcB
+     * Time 501.912897 res 6887431068208286720
+     * Time 272.098515 res 6887431068208286720
+     * Time 262.676189 res 6887431068208286720
+     * Time 263.413871 res 6887431068208286720
+     * Time 272.46586 res 6887431068208286720
+     * Time 210.61795 res 6887431068208286720
+     * Time 183.967247 res 6887431068208286720
+     * Time 183.956467 res 6887431068208286720
+     * Time 179.251605 res 6887431068208286720
+     * Time 179.942581 res 6887431068208286720
+     *
+     * calcBOps
+     * Time 350.47566 res 6887431068208286720
+     * Time 296.140056 res 6887431068208286720
+     * Time 297.223755 res 6887431068208286720
+     * Time 305.498102 res 6887431068208286720
+     * Time 240.529082 res 6887431068208286720
+     * Time 176.476125 res 6887431068208286720
+     * Time 179.660099 res 6887431068208286720
+     * Time 177.795409 res 6887431068208286720
+     * Time 182.906869 res 6887431068208286720
+     * Time 179.012713 res 6887431068208286720
+     */
+    @Test
+    public void testCase3Time() {
+        //given
+        int[] array = populateRandomArray(10_000_000);
+        int x = 2;
+
+        //when
+        for (int i = 0; i < 10; i++) {
+            long startTime = System.nanoTime();
+            long actual = Task1.calcBOps(array, x);
+            long endTime = System.nanoTime();
+
+            System.out.println("Time " +(endTime - startTime) / 1e6 + " res " + actual);
+        }
+    }
+
+    private int[] populateRandomArray(int n) {
+        int[] array = new int[n];
+        Random random = new Random(1000);
+        for (int i = 0; i < n; i++) {
+            array[i] = random.nextInt();
+        }
+
+        return array;
+    }
 }

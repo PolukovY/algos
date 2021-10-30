@@ -92,4 +92,32 @@ public class Task1 {
             result[i] = value;
         }
     }
+
+    /**
+     *  2*x^3 + 3*x + 1
+     */
+    public static long calcB(int[] items, int x) {
+        long y = 0;
+
+        for (int i = items.length - 1; i >= 0; i--) {
+            y += items[i] * Math.pow(x, i);
+        }
+
+        return y;
+    }
+
+    public static long calcBOps(int[] items, int x) {
+        long y = 0;
+        int m = items.length / 2;
+
+        for (int i = items.length - 1; i > m; i--) {
+            y += items[i] * Math.pow(x, i);
+        }
+
+        for (int i = m; i >= 0; i--) {
+            y += items[i] * Math.pow(x, i);
+        }
+
+        return y;
+    }
 }
