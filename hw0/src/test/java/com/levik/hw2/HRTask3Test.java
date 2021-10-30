@@ -13,7 +13,7 @@ public class HRTask3Test {
         int[] res = {0, 0, 1, 0};
 
         //when
-        int[] solution = HRTask3.solution(k);
+        long[] solution = HRTask3.solution(k);
 
         //then
         assertEquals(res[0], solution[0]);

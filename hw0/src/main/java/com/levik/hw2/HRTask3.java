@@ -13,31 +13,30 @@ public class HRTask3 {
             k[i] = input.nextInt();
         }
 
-        int[] solution = solution(k);
+        long[] solution = solution(k);
         System.out.println(convert(solution));
     }
 
-    private static String convert(int[] items) {
+    private static String convert(long[] items) {
         StringJoiner result = new StringJoiner(SPLITERATOR);
-        for (int item : items) {
+        for (long item : items) {
             result.add(String.valueOf(item));
         }
         return result.toString();
     }
 
-    public static int[] solution(int[] k) {
-        int[] res = new int[k.length];
+    public static long[] solution(int[] k) {
+        long[] res = new long[k.length];
 
         for (int i = 0; i < k.length; i++) {
-            res[i] = calc(k[i]);
+            res[i] = calc(k[i] - 1);
         }
 
         return res;
     }
 
-    private static int calc(int i) {
-        long n = (long) (Math.sqrt(0.25 + 2 * i) - 0.5);
-        long diff = i - (long) (n * (n + 1) / 2.0);
-        return diff == 1 || i == 1 ? 1 : 0;
+    private static long calc(int i) {
+        double n = (Math.sqrt(8.0 * i + 1) -1) / 2;
+        return n == (int)n ? 1 : 0;
     }
 }
