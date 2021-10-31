@@ -5,7 +5,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class YTask2 {
+public class YTask1 {
     public static final String INPUT_TXT = "input.txt";
     public static final String OUTPUT_TXT = "output.txt";
     public static final String SPLITERATOR = " ";

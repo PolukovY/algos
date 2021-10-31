@@ -3,7 +3,7 @@ package com.levik.hw2;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class YTask2Test {
+public class YTask1Test {
     private static final String YES = "YES";
     private static final String NO = "NO";
 
@@ -13,7 +13,7 @@ public class YTask2Test {
         String[] array = {"1", "7", "9"};
 
         //when
-        String actual = YTask2.task(array);
+        String actual = YTask1.task(array);
 
         //then
         Assert.assertEquals(YES, actual);
@@ -25,7 +25,7 @@ public class YTask2Test {
         String[] array = {"1", "9", "7"};
 
         //when
-        String actual = YTask2.task(array);
+        String actual = YTask1.task(array);
 
         //then
         Assert.assertEquals(NO, actual);
@@ -37,7 +37,7 @@ public class YTask2Test {
         String[] array = {"2", "2", "2"};
 
         //when
-        String actual = YTask2.task(array);
+        String actual = YTask1.task(array);
 
         //then
         Assert.assertEquals(NO, actual);
