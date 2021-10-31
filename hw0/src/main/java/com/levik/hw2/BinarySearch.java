@@ -4,7 +4,7 @@ public class BinarySearch {
 
     public static int search(int[] array, int key) {
         int left = -1;
-        int right = array.length;
+        int right = array.length - 1;
 
         while (right - left > 1) {
             int m = (right + left) >>> 1;
@@ -16,6 +16,6 @@ public class BinarySearch {
             }
         }
 
-        return right;
+        return array[right] == key ? right : -1;
     }
 }
