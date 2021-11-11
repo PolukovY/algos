@@ -18,13 +18,13 @@ public class SquaresOfSortedArray {
             int numRight = nums[right];
 
             int leftValueMultiply = numLeft * numLeft;
-            int rightValue = numRight * numRight;
+            int rightValueMultiply = numRight * numRight;
 
-            if(leftValueMultiply > rightValue){
+            if(leftValueMultiply > rightValueMultiply){
                 num = leftValueMultiply;
                 left++;
             } else {
-                num = rightValue;
+                num = rightValueMultiply;
                 right--;
             }
 
