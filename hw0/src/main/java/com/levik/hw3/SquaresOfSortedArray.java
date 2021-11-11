@@ -14,18 +14,21 @@ public class SquaresOfSortedArray {
 
         for (int index = nums.length - 1; index >= 0; index--) {
             int num;
-            int leftValue = Math.abs(nums[left]);
-            int rightValue = Math.abs(nums[right]);
+            int numLeft = nums[left];
+            int numRight = nums[right];
 
-            if(leftValue > rightValue){
-                num = leftValue;
+            int leftValueMultiply = numLeft * numLeft;
+            int rightValue = numRight * numRight;
+
+            if(leftValueMultiply > rightValue){
+                num = leftValueMultiply;
                 left++;
             } else {
                 num = rightValue;
                 right--;
             }
 
-            res[index] = num * num;
+            res[index] = num;
         }
 
         return res;
