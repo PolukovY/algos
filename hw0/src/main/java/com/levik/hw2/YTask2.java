@@ -96,7 +96,7 @@ public class YTask2 {
         for (int i = 0; i < kArray.length; i++) {
             int key = kArray[i];
             int index = binarySearch(nArray, key);
-            res[i] = indexExistInArray(index);
+            res[i] = isIndexFound(index);
         }
 
         return res;
@@ -116,10 +116,10 @@ public class YTask2 {
             }
         }
 
-        return array[right] == key ? right : -1;
+        return array[right] == key ? right : NOT_FOUND;
     }
 
-    private static String indexExistInArray(int index) {
+    private static String isIndexFound(int index) {
         return index == NOT_FOUND ? NO : YES;
     }
 

@@ -18,7 +18,7 @@ public class HRTask1Test {
         int[] expectedItems = {1, 4};
 
         //when
-        int[] actual = HRTask1.solution(costs, money);
+        int[] actual = HRTask1.solution5(costs, money);
 
         //then
         Assert.assertEquals(expectedItems[0], actual[0]);
@@ -33,7 +33,7 @@ public class HRTask1Test {
         int[] expectedItems = {1, 2};
 
         //when
-        int[] actual = HRTask1.solution(costs, money);
+        int[] actual = HRTask1.solution4(costs, money);
 
         //then
         Assert.assertEquals(expectedItems[0], actual[0]);
@@ -48,7 +48,7 @@ public class HRTask1Test {
         int[] expectedItems = {1, 2};
 
         //when
-        int[] actual = HRTask1.solution2(costs, money);
+        int[] actual = HRTask1.solution4(costs, money);
 
         //then
         Assert.assertEquals(expectedItems[0], actual[0]);
@@ -63,7 +63,7 @@ public class HRTask1Test {
         int[] expectedItems = {1, 4};
 
         //when
-        int[] actual = HRTask1.solution(costs, money);
+        int[] actual = HRTask1.solution4(costs, money);
 
         //then
         Assert.assertEquals(expectedItems[0], actual[0]);
@@ -78,7 +78,7 @@ public class HRTask1Test {
         int[] expectedItems = {1, 2};
 
         //when
-        int[] actual = HRTask1.solution(costs, money);
+        int[] actual = HRTask1.solution4(costs, money);
 
         //then
         Assert.assertEquals(expectedItems[0], actual[0]);
@@ -93,7 +93,7 @@ public class HRTask1Test {
         int[] expectedItems = {1, 4};
 
         //when
-        int[] actual = HRTask1.solution2(costs, money);
+        int[] actual = HRTask1.solution4(costs, money);
 
         //then
         Assert.assertEquals(expectedItems[0], actual[0]);
@@ -108,7 +108,7 @@ public class HRTask1Test {
         int[] expectedItems = {1, 2};
 
         //when
-        int[] actual = HRTask1.solution2(costs, money);
+        int[] actual = HRTask1.solution4(costs, money);
 
         //then
         Assert.assertEquals(expectedItems[0], actual[0]);
