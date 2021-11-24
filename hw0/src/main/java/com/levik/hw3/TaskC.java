@@ -40,7 +40,7 @@ public class TaskC {
                 left++;
             }
 
-            findCombinations(array, left, right, target, subArrays);
+            findCombinationsHelper(array, left, right, target, subArrays);
             System.out.println("Sum: " + sum + " subArraysSum: " + sum(subArrays) + " left: " + left + " right: " + right);
             System.out.println();
 
@@ -60,9 +60,15 @@ public class TaskC {
         return sum;
     }
 
-    public static void findCombinations(int[] array, int start, int end, int k,
-                                        Set<List<Integer>> subArrays,
-                                        List<Integer> combinations) {
+    public static void findCombinationsHelper(int[] array, int start, int end, int k, Set<List<Integer>> subArrays) {
+        for (int i = 1; i <= k; i++) {
+            findCombinationsHelper(array, start, end, i, subArrays, new ArrayList<>());
+        }
+    }
+
+    private static void findCombinationsHelper(int[] array, int start, int end, int k,
+                                               Set<List<Integer>> subArrays,
+                                               List<Integer> combinations) {
         if (k == 0) {
             subArrays.add(new ArrayList<>(combinations));
             return;
@@ -70,14 +76,8 @@ public class TaskC {
 
         for (int j = start; j <= end; j++) {
             combinations.add(array[j]);
-            findCombinations(array, j + 1, end, k - 1, subArrays, combinations);
+            findCombinationsHelper(array, j + 1, end, k - 1, subArrays, combinations);
             combinations.remove(combinations.size() - 1);
-        }
-    }
-
-    public static void findCombinations(int[] array, int start, int end, int k, Set<List<Integer>> subArrays) {
-        for (int i = 1; i <= k; i++) {
-            findCombinations(array, start, end, i, subArrays, new ArrayList<>());
         }
     }
 
