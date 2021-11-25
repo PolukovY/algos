@@ -18,4 +18,16 @@ public class TaskBTest {
         Assert.assertEquals(expected.first, actual.first);
         Assert.assertEquals(expected.second, actual.second);
     }
+
+    @Test
+    public void testCase2() {
+        int[] array = {3, 1, 1, 1, 4};
+        int k = 6;
+        TaskB.Tuple expected = new TaskB.Tuple(5, 2);
+
+        TaskB.Tuple actual = TaskB.solution(array, k);
+
+        Assert.assertEquals(expected.first, actual.first);
+        Assert.assertEquals(expected.second, actual.second);
+    }
 }

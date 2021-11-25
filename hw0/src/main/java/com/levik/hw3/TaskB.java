@@ -37,6 +37,10 @@ public class TaskB {
         for (int start = 0; start < n; start++) {
             currentSum += array[start];
 
+            if (start == m && currentSum < target) {
+                end = -1;
+            }
+
             while (end < m && currentSum < target) {
                 currentSum += array[++end];
                 currentCount++;
