@@ -54,7 +54,7 @@ public class TaskCTest {
         //given
         int[] array = {2, 6};
         int target = 8;
-        int expectedCount = 3;
+        int expectedCount = 4;
 
         //when
         int actualCount = TaskC.solution(array, target);

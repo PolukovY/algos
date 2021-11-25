@@ -27,58 +27,28 @@ public class TaskC {
         int left = 0;
         int sum = 0;
         int count  = 0;
-        Set<List<Integer>> subArrays = new HashSet<>();
-        System.out.println(Arrays.toString(array) + " target: " + target + "\n");
 
         for (int right = 0; right < array.length; right++) {
-            int rightValue = array[right];
-            sum += rightValue;
+            sum += array[right];
 
             while (sum > target) {
-                int leftValue = array[left];
-                sum -= leftValue;
+                sum -= array[left];
                 left++;
             }
 
-            findCombinationsHelper(array, left, right, target, subArrays);
-            System.out.println("Sum: " + sum + " subArraysSum: " + sum(subArrays) + " left: " + left + " right: " + right);
-            System.out.println();
-
-            //count += right - left + 1;
+            count += sum(right - left + 1);
         }
 
-        return sum(subArrays);
+        return count;
     }
 
-    private static int sum(Set<List<Integer>> subArrays) {
+    private static int sum(int n) {
         int sum = 0;
-        for (List<Integer> subArray : subArrays) {
-            sum += subArray.size();
-            System.out.println(Arrays.toString(subArray.toArray()) + " -> " + subArray.size());
-        }
 
+        for (int i = 1; i <= n;i++) {
+            sum+=i;
+        }
         return sum;
-    }
-
-    public static void findCombinationsHelper(int[] array, int start, int end, int k, Set<List<Integer>> subArrays) {
-        for (int i = 1; i <= k; i++) {
-            findCombinationsHelper(array, start, end, i, subArrays, new ArrayList<>());
-        }
-    }
-
-    private static void findCombinationsHelper(int[] array, int start, int end, int k,
-                                               Set<List<Integer>> subArrays,
-                                               List<Integer> combinations) {
-        if (k == 0) {
-            subArrays.add(new ArrayList<>(combinations));
-            return;
-        }
-
-        for (int j = start; j <= end; j++) {
-            combinations.add(array[j]);
-            findCombinationsHelper(array, j + 1, end, k - 1, subArrays, combinations);
-            combinations.remove(combinations.size() - 1);
-        }
     }
 
 }
