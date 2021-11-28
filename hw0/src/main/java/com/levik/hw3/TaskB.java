@@ -11,7 +11,7 @@ public class TaskB {
         String[] inputs = input.nextLine().split(SPACE);
 
         int n = Integer.parseInt(inputs[0]);
-        int p = Integer.parseInt(inputs[1]);
+        long p = Long.parseLong(inputs[1]);
 
         String[] items = input.nextLine().split(SPACE);
         int[] a = new int[items.length];
@@ -23,7 +23,7 @@ public class TaskB {
         System.out.println(solution.first + SPACE + solution.second);
     }
 
-    public static Tuple solution(int[] array, int target) {
+    public static Tuple solution(int[] array, long target) {
         int n = array.length;
         int m = n - 1;
         int end = 0;
@@ -32,7 +32,7 @@ public class TaskB {
         int maxCount = Integer.MAX_VALUE;
 
         int currentCount = 0;
-        int currentSum = 0;
+        long currentSum = 0;
 
         for (int start = 0; start < n; start++) {
             currentSum += array[start];
