@@ -1,76 +1,106 @@
 package com.levik.hw4;
 
-import java.util.LinkedList;
+import java.util.Arrays;
 
 public class MyCircularDeque {
 
-    private static final int FIRST = 0;
+    private static final int NULL = -1;
+    private static final int ZERO = 0;
 
-    private final LinkedList<Integer> dequeue;
-    private final int capacity;
+    private final int[] dequeue;
+    private int size;
+    private int head;
+    private int tail;
 
     public MyCircularDeque(int k) {
-        this.dequeue = new LinkedList<>();
-        this.capacity = k;
+        this.dequeue = new int[k];
+        Arrays.fill(dequeue, NULL);
+        this.size = ZERO;
     }
 
     public boolean insertFront(int value) {
-        if (isFull()) {
+        if(isFull()) {
             return false;
         }
 
-        dequeue.add(FIRST, value);
+        if(isEmpty()) {
+            head = ZERO;
+            tail = ZERO;
+            dequeue[tail] = value;
+            size++;
+            return true;
+        }
+
+        head--;
+        if (head == NULL){
+            head = dequeue.length - 1;
+        }
+        dequeue[head] = value;
+        size++;
         return true;
     }
 
     public boolean insertLast(int value) {
-        if (isFull()) {
+        if(isFull()) {
             return false;
         }
 
-        return dequeue.add(value);
+        if (isEmpty()) {
+            head = ZERO;
+            tail = ZERO;
+            dequeue[tail] = value;
+            size++;
+            return true;
+        }
+
+        tail++;
+        tail = tail % dequeue.length;
+        dequeue[tail] = value;
+        size++;
+        return true;
     }
 
     public boolean deleteFront() {
-        if (isEmpty()) {
+        if(isEmpty()) {
             return false;
         }
 
-        dequeue.removeFirst();
+        dequeue[head] = NULL;
+        head++;
+        head = head % dequeue.length;
+        size--;
         return true;
     }
 
     public boolean deleteLast() {
-        if (isEmpty()) {
+        if(isEmpty()) {
             return false;
         }
 
-        dequeue.removeLast();
+        dequeue[tail] = NULL;
+        tail--;
+
+        if(tail == NULL) {
+            tail = dequeue.length - 1;
+        }
+
+        size--;
         return true;
     }
 
     public int getFront() {
-        if (isEmpty()){
-            return -1;
-        }
-
-        return dequeue.get(FIRST);
+        return dequeue[head];
     }
 
     public int getRear() {
-        if (isEmpty()) {
-            return -1;
-        }
-
-        return dequeue.get(dequeue.size() - 1);
-
+        return dequeue[tail];
     }
 
     public boolean isEmpty() {
-        return dequeue.size() == 0;
+        return size == ZERO;
     }
 
     public boolean isFull() {
-        return dequeue.size() == capacity;
+        return size == dequeue.length;
     }
 }
