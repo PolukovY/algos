@@ -3,7 +3,7 @@ package com.levik.hw4;
 public class NextPermutation {
 
     public void nextPermutation(int[] nums) {
-        if(nums == null || nums.length <= 1) {
+        if(nums.length <= 1) {
             return ;
         }
 
