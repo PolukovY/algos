@@ -11,10 +11,7 @@ public class AllHappyStrings {
     public String getHappyString(int n, int k) {
         List<String> combinations = new ArrayList<>();
         solution(EMPTY, combinations, n, k);
-        if (combinations.size() < k) {
-            return EMPTY;
-        }
-        return combinations.get(k - 1);
+        return combinations.size() < k ? EMPTY : combinations.get(k  - 1);
     }
 
     private void solution(String combination, List<String> combinations, int n, int k) {
