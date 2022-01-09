@@ -13,17 +13,17 @@ public class ProductsMatrix {
 
         String[] item = inputs.split(SPACE);
         int n = Integer.parseInt(item[0]);
-        int k = Integer.parseInt(item[1]);
+        long k = Long.parseLong(item[1]);
 
-        int position = solution(n, k);
+        long position = solution(n, k);
         System.out.println(position);
     }
 
-    public static int solution(int n, int k) {
-        PriorityQueue<Integer> minHeap = createMinHeap(n);
+    public static long solution(int n, long k) {
+        PriorityQueue<Long> minHeap = createMinHeap(n);
 
-        int i = 1;
-        int item = -1;
+        long i = 1;
+        long item = -1;
 
         while (i <= k) {
             item = minHeap.poll();
@@ -33,9 +33,9 @@ public class ProductsMatrix {
         return item;
     }
 
-    private static PriorityQueue<Integer> createMinHeap(int n) {
-        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
-        int iteration = 1;
+    private static PriorityQueue<Long> createMinHeap(int n) {
+        PriorityQueue<Long> minHeap = new PriorityQueue<>();
+        long iteration = 1;
 
         for(int i = 0; i < n; i++) {
             int item = 1;
